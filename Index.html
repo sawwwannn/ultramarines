@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профессия Проектный менеджер</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 15px 30px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 12px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb, #38bdf8);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #facc15;
+        }
+
+        .hero p {
+            font-size: 22px;
+            max-width: 750px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #facc15;
+            color: #1f2937;
+            padding: 15px 30px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-4px);
+        }
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #1e3a8a;
+            margin-bottom: 30px;
+        }
+
+        .simple-box {
+            background: white;
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            font-size: 19px;
+            border-left: 8px solid #2563eb;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skills-box {
+            background: white;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .skills-box h3 {
+            color: #1e40af;
+            margin-bottom: 18px;
+            font-size: 24px;
+        }
+
+        .skills-box ul {
+            list-style: none;
+        }
+
+        .skills-box li {
+            background: #eff6ff;
+            margin-bottom: 12px;
+            padding: 12px 15px;
+            border-radius: 14px;
+            border-left: 5px solid #2563eb;
+        }
+
+        .steps {
+            counter-reset: step;
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .step {
+            background: white;
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 25px;
+            top: 25px;
+            width: 35px;
+            height: 35px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .day-timeline {
+            margin-top: 30px;
+            display: grid;
+            gap: 18px;
+        }
+
+        .time-item {
+            background: white;
+            border-radius: 20px;
+            padding: 22px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        .time {
+            background: #1e3a8a;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-weight: bold;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .importance {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+            padding: 40px;
+            border-radius: 28px;
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.35);
+            font-size: 19px;
+        }
+
+        .importance strong {
+            color: #facc15;
+        }
+
+        .interactive-box {
+            background: white;
+            padding: 35px;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .quiz-question {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .quiz-options button {
+            padding: 15px;
+            border: 2px solid #2563eb;
+            background: #eff6ff;
+            border-radius: 18px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .quiz-options button:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .quiz-options button:disabled {
+            cursor: default;
+        }
+
+        #quizResult {
+            margin-top: 25px;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        #quizScore {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        #snakeGame {
+            background: #020617;
+            border: 6px solid #1e3a8a;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+            max-width: 100%;
+        }
+
+        footer {
+            background: #111827;
+            color: #d1d5db;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        #topButton {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 52px;
+            height: 52px;
+            border: none;
+            border-radius: 50%;
+            background: #facc15;
+            color: #111827;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        #topButton:hover {
+            background: white;
+        }
+
+        @media (max-width: 700px) {
+            nav a {
+                display: inline-block;
+                margin: 6px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .time-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#who">Кто это</a>
+        <a href="#tasks">Задачи</a>
+        <a href="#skills">Навыки</a>
+        <a href="#start">Карьера</a>
+        <a href="#day">Один день</a>
+        <a href="#ertx">ЭРТХ</a>
+        <a href="#quiz">Тест</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Современная IT-профессия</div>
+            <h1>Профессия <span>Проектный менеджер</span></h1>
+            <p>
+                Проектный менеджер помогает команде выполнить проект вовремя,
+                правильно распределяет задачи и следит, чтобы результат был полезен заказчику.
+            </p>
+            <a href="#who" class="btn">Начать знакомство</a>
+        </div>
+    </header>
+
+    <section id="who">
+        <h2>Кто это простыми словами?</h2>
+
+        <div class="simple-box">
+            <p>
+                <strong>Проектный менеджер</strong> — это человек, который организует работу команды.
+                Он не обязательно сам пишет код или делает дизайн, но он понимает, кто что должен сделать,
+                когда это нужно сдать и как добиться хорошего результата.
+            </p>
+            <br>
+            <p>
+                Простыми словами: проектный менеджер — это связующее звено между заказчиком,
+                командой и руководством. Он следит, чтобы проект не развалился, сроки не сорвались,
+                а все участники понимали свои задачи.
+            </p>
+        </div>
+    </section>
+
+    <section id="tasks">
+        <h2>Рабочие задачи проектного менеджера</h2>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">📌</div>
+                <h3>Планирование проекта</h3>
+                <p>Определяет цели, сроки, этапы работы и ожидаемый результат проекта.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>Работа с командой</h3>
+                <p>Распределяет задачи между специалистами и помогает им двигаться в одном направлении.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🗓️</div>
+                <h3>Контроль сроков</h3>
+                <p>Следит, чтобы задачи выполнялись вовремя, а задержки быстро решались.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💬</div>
+                <h3>Общение с заказчиком</h3>
+                <p>Уточняет требования, показывает промежуточные результаты и собирает обратную связь.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚠️</div>
+                <h3>Управление рисками</h3>
+                <p>Заранее замечает проблемы, которые могут помешать проекту, и ищет способы их избежать.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Отчётность</h3>
+                <p>Готовит отчёты о ходе проекта для руководства, заказчика или команды.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">✅</div>
+                <h3>Проверка результата</h3>
+                <p>Смотрит, соответствует ли итоговая работа целям проекта и требованиям заказчика.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Hard skills и Soft skills</h2>
+
+        <div class="skills-wrapper">
+            <div class="skills-box">
+                <h3>Hard skills</h3>
+                <ul>
+                    <li>Умение составлять план проекта</li>
+                    <li>Работа с таблицами и документами</li>
+                    <li>Знание Agile, Scrum или Kanban</li>
+                    <li>Работа с Trello, Jira, Notion или аналогами</li>
+                    <li>Понимание этапов разработки продукта</li>
+                    <li>Навыки подготовки отчётов и презентаций</li>
+                </ul>
+            </div>
+
+            <div class="skills-box">
+                <h3>Soft skills</h3>
+                <ul>
+                    <li>Коммуникабельность</li>
+                    <li>Ответственность</li>
+                    <li>Умение решать конфликты</li>
+                    <li>Организованность</li>
+                    <li>Лидерство</li>
+                    <li>Внимательность к деталям</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="start">
+        <h2>Как начать карьеру студенту?</h2>
+
+        <div class="steps">
+            <div class="step">
+                <h3>Изучить основы управления проектами</h3>
+                <p>Разобраться, что такое проект, сроки, задачи, команда, риски и результат.</p>
+            </div>
+
+            <div class="step">
+                <h3>Освоить простые инструменты</h3>
+                <p>Попробовать Trello, Notion, Google Таблицы, диаграммы Ганта или похожие сервисы.</p>
+            </div>
+
+            <div class="step">
+                <h3>Взять учебный или небольшой проект</h3>
+                <p>Например, организовать командную работу над сайтом, презентацией, мероприятием или исследованием.</p>
+            </div>
+
+            <div class="step">
+                <h3>Научиться общаться с командой</h3>
+                <p>Проводить короткие встречи, записывать договорённости и контролировать выполнение задач.</p>
+            </div>
+
+            <div class="step">
+                <h3>Собрать портфолио</h3>
+                <p>Описать 2–3 проекта: цель, задачи, команда, сроки, результат и свою роль.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="day">
+        <h2>Один день из жизни проектного менеджера</h2>
+
+        <div class="day-timeline">
+            <div class="time-item">
+                <div class="time">09:00</div>
+                <div>
+                    <h3>Проверка задач</h3>
+                    <p>Менеджер смотрит, что было сделано вчера, какие задачи просрочены и что важно сегодня.</p>
+                </div>
+            </div>
+
+            <div class="time-item">
+                <div class="time">10:00</div>
+                <div>
+                    <h3>Встреча с командой</h3>
+                    <p>Команда коротко обсуждает прогресс, проблемы и планы на день.</p>
+                </div>
+            </div>
+
+            <div class="time-item">
+                <div class="time">12:00</div>
+                <div>
+                    <h3>Общение с заказчиком</h3>
+                    <p>Проектный менеджер уточняет требования и согласовывает важные изменения.</p>
+                </div>
+            </div>
+
+            <div class="time-item">
+                <div class="time">14:00</div>
+                <div>
+                    <h3>Работа с документами</h3>
+                    <p>Обновляет план проекта, сроки, статусы задач и отчёты.</p>
+                </div>
+            </div>
+
+            <div class="time-item">
+                <div class="time">17:00</div>
+                <div>
+                    <h3>Итоги дня</h3>
+                    <p>Проверяет, что получилось сделать, и готовит план на следующий день.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ertx">
+        <h2>Почему роль важна для ЭРТХ?</h2>
+
+        <div class="importance">
+            <p>
+                Для <strong>ЭРТХ</strong> проектный менеджер важен, потому что он помогает
+                организовать сложные технические и учебные проекты: распределяет задачи,
+                контролирует сроки, координирует участников и делает работу более понятной.
+            </p>
+            <br>
+            <p>
+                В сфере связи, телекоммуникаций и технических систем особенно важно,
+                чтобы все этапы проекта были выполнены точно: от планирования до внедрения.
+                Проектный менеджер снижает риск ошибок, улучшает взаимодействие между людьми
+                и помогает быстрее получить готовый результат.
+            </p>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <h2>Интерактивный тест</h2>
+
+        <div class="interactive-box">
+            <div class="quiz-question" id="quizQuestion">
+                Вопрос загрузится здесь
+            </div>
+
+            <div class="quiz-options" id="quizOptions"></div>
+
+            <p id="quizResult"></p>
+            <p id="quizScore"></p>
+
+            <button class="btn" id="nextQuestionBtn" onclick="nextQuestion()" style="display: none;">
+                Следующий вопрос
+            </button>
+        </div>
+    </section>
+
+    <section id="easterEgg" style="display: none;">
+        <h2>Пасхалка: мини-змейка</h2>
+
+        <div class="interactive-box">
+            <p style="margin-bottom: 20px;">
+                Ты нашёл пасхалку! Управление: ← ↑ → ↓. Собирай еду и набирай очки.
+            </p>
+
+            <canvas id="snakeGame" width="400" height="400"></canvas>
+
+            <p id="snakeScore" style="margin-top: 15px; font-weight: bold;">
+                Очки: 0
+            </p>
+
+            <p id="snakeMessage" style="font-weight: bold;"></p>
+
+            <button class="btn" onclick="restartSnake()" style="margin-top: 15px;">
+                Начать заново
+            </button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Сайт о профессии «Проектный менеджер»</p>
+    </footer>
+
+    <button id="topButton">↑</button>
+
+    <script>
+        const quizData = [
+            {
+                question: "1. Какая главная задача проектного менеджера?",
+                options: [
+                    "Самостоятельно писать весь программный код",
+                    "Организовать работу команды и довести проект до результата",
+                    "Только рисовать дизайн сайта",
+                    "Только покупать оборудование"
+                ],
+                correct: 1
+            },
+            {
+                question: "2. Что относится к hard skills проектного менеджера?",
+                options: [
+                    "Умение работать с Trello, Jira или Notion",
+                    "Хорошее чувство юмора",
+                    "Любовь к музыке",
+                    "Умение быстро печатать сообщения друзьям"
+                ],
+                correct: 0
+            },
+            {
+                question: "3. Что относится к soft skills?",
+                options: [
+                    "Знание языка SQL",
+                    "Работа с диаграммой Ганта",
+                    "Коммуникабельность и умение решать конфликты",
+                    "Настройка сервера"
+                ],
+                correct: 2
+            },
+            {
+                question: "4. Зачем проектному менеджеру контролировать сроки?",
+                options: [
+                    "Чтобы проект не затянулся и команда успела выполнить задачи",
+                    "Чтобы делать меньше работы",
+                    "Чтобы не общаться с заказчиком",
+                    "Чтобы заменить всех специалистов"
+                ],
+                correct: 0
+            },
+            {
+                question: "5. С чего студенту лучше начать путь в проектный менеджмент?",
+                options: [
+                    "Сразу руководить крупной компанией",
+                    "Изучить основы управления проектами и попробовать маленький учебный проект",
+                    "Не учиться и ждать приглашения на работу",
+                    "Заниматься только дизайном"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        const questionElement = document.getElementById("quizQuestion");
+        const optionsElement = document.getElementById("quizOptions");
+        const resultElement = document.getElementById("quizResult");
+        const scoreElement = document.getElementById("quizScore");
+        const nextButton = document.getElementById("nextQuestionBtn");
+
+        function loadQuestion() {
+            answered = false;
+            resultElement.textContent = "";
+            nextButton.style.display = "none";
+
+            const question = quizData[currentQuestion];
+
+            questionElement.textContent = question.question;
+            optionsElement.innerHTML = "";
+
+            question.options.forEach(function(option, index) {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = function() {
+                    checkAnswer(index);
+                };
+                optionsElement.appendChild(button);
+            });
+
+            scoreElement.textContent = "Счёт: " + score + " из " + quizData.length;
+        }
+
+        function checkAnswer(selectedIndex) {
+            if (answered) {
+                return;
+            }
+
+            answered = true;
+
+            const question = quizData[currentQuestion];
+            const buttons = optionsElement.querySelectorAll("button");
+
+            buttons.forEach(function(button, index) {
+                button.disabled = true;
+
+                if (index === question.correct) {
+                    button.style.background = "#dcfce7";
+                    button.style.borderColor = "#16a34a";
+                    button.style.color = "#166534";
+                }
+
+                if (index === selectedIndex && selectedIndex !== question.correct) {
+                    button.style.background = "#fee2e2";
+                    button.style.borderColor = "#dc2626";
+                    button.style.color = "#991b1b";
+                }
+            });
+
+            if (selectedIndex === question.correct) {
+                score++;
+                resultElement.textContent = "Правильно!";
+                resultElement.style.color = "#16a34a";
+            } else {
+                resultElement.textContent = "Не совсем. Правильный ответ подсвечен зелёным.";
+                resultElement.style.color = "#dc2626";
+            }
+
+            scoreElement.textContent = "Счёт: " + score + " из " + quizData.length;
+
+            if (currentQuestion < quizData.length - 1) {
+                nextButton.style.display = "inline-block";
+            } else {
+                showFinalResult();
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            loadQuestion();
+        }
+
+        function showFinalResult() {
+            nextButton.style.display = "none";
+
+            if (score === quizData.length) {
+                resultElement.textContent = "Отлично! Ты ответил правильно на все вопросы. Пасхалка открыта ниже!";
+                resultElement.style.color = "#16a34a";
+                document.getElementById("easterEgg").style.display = "block";
+                startSnake();
+            } else {
+                resultElement.textContent = "Тест завершён. Твой результат: " + score + " из " + quizData.length + ". Попробуй пройти ещё раз, чтобы открыть пасхалку!";
+                resultElement.style.color = "#dc2626";
+            }
+        }
+
+        loadQuestion();
+
+        const topButton = document.getElementById("topButton");
+
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 500) {
+                topButton.style.display = "block";
+            } else {
+                topButton.style.display = "none";
+            }
+        });
+
+        topButton.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        let snakeCanvas;
+        let snakeContext;
+        let snake;
+        let food;
+        let direction;
+        let nextDirection;
+        let snakeScoreValue;
+        let snakeInterval;
+        let snakeStarted = false;
+        let snakeGameOver = false;
+
+        const boxSize = 20;
+        const fieldSize = 400;
+        const cellsCount = fieldSize / boxSize;
+
+        function startSnake() {
+            if (snakeStarted) {
+                return;
+            }
+
+            snakeCanvas = document.getElementById("snakeGame");
+            snakeContext = snakeCanvas.getContext("2d");
+
+            snakeStarted = true;
+            resetSnakeData();
+
+            snakeInterval = setInterval(updateSnakeGame, 120);
+        }
+
+        function resetSnakeData() {
+            snake = [
+                { x: 9, y: 10 },
+                { x: 8, y: 10 },
+                { x: 7, y: 10 }
+            ];
+
+            direction = "right";
+            nextDirection = "right";
+            snakeScoreValue = 0;
+            snakeGameOver = false;
+
+            food = createFood();
+
+            document.getElementById("snakeScore").textContent = "Очки: 0";
+            document.getElementById("snakeMessage").textContent = "";
+
+            drawSnakeGame();
+        }
+
+        function restartSnake() {
+            clearInterval(snakeInterval);
+            resetSnakeData();
+            snakeInterval = setInterval(updateSnakeGame, 120);
+        }
+
+        function createFood() {
+            let newFood;
+            let onSnake;
+
+            do {
+                newFood = {
+                    x: Math.floor(Math.random() * cellsCount),
+                    y: Math.floor(Math.random() * cellsCount)
+                };
+
+                onSnake = snake.some(function(part) {
+                    return part.x === newFood.x && part.y === newFood.y;
+                });
+            } while (onSnake);
+
+            return newFood;
+        }
+
+        function updateSnakeGame() {
+            if (snakeGameOver) {
+                return;
+            }
+
+            direction = nextDirection;
+
+            const head = {
+                x: snake[0].x,
+                y: snake[0].y
+            };
+
+            if (direction === "right") {
+                head.x++;
+            } else if (direction === "left") {
+                head.x--;
+            } else if (direction === "up") {
+                head.y--;
+            } else if (direction === "down") {
+                head.y++;
+            }
+
+            if (
+                head.x < 0 ||
+                head.x >= cellsCount ||
+                head.y < 0 ||
+                head.y >= cellsCount ||
+                isSnakeCollision(head)
+            ) {
+                endSnakeGame();
+                return;
+            }
+
+            snake.unshift(head);
+
+            if (head.x === food.x && head.y === food.y) {
+                snakeScoreValue++;
+                document.getElementById("snakeScore").textContent = "Очки: " + snakeScoreValue;
+                food = createFood();
+            } else {
+                snake.pop();
+            }
+
+            drawSnakeGame();
+        }
+
+        function isSnakeCollision(head) {
+            return snake.some(function(part) {
+                return part.x === head.x && part.y === head.y;
+            });
+        }
+
+        function drawSnakeGame() {
+            snakeContext.fillStyle = "#020617";
+            snakeContext.fillRect(0, 0, fieldSize, fieldSize);
+
+            drawGrid();
+
+            snakeContext.fillStyle = "#facc15";
+            snakeContext.fillRect(
+                food.x * boxSize,
+                food.y * boxSize,
+                boxSize,
+                boxSize
+            );
+
+            snake.forEach(function(part, index) {
+                if (index === 0) {
+                    snakeContext.fillStyle = "#16a34a";
+                } else {
+                    snakeContext.fillStyle = "#22c55e";
+                }
+
+                snakeContext.fillRect(
+                    part.x * boxSize,
+                    part.y * boxSize,
+                    boxSize - 2,
+                    boxSize - 2
+                );
+            });
+        }
+
+        function drawGrid() {
+            snakeContext.strokeStyle = "rgba(255, 255, 255, 0.08)";
+
+            for (let i = 0; i <= fieldSize; i += boxSize) {
+                snakeContext.beginPath();
+                snakeContext.moveTo(i, 0);
+                snakeContext.lineTo(i, fieldSize);
+                snakeContext.stroke();
+
+                snakeContext.beginPath();
+                snakeContext.moveTo(0, i);
+                snakeContext.lineTo(fieldSize, i);
+                snakeContext.stroke();
+            }
+        }
+
+        function endSnakeGame() {
+            snakeGameOver = true;
+            clearInterval(snakeInterval);
+
+            document.getElementById("snakeMessage").textContent =
+                "Игра окончена! Твой результат: " + snakeScoreValue + " очков.";
+
+            document.getElementById("snakeMessage").style.color = "#dc2626";
+
+            snakeContext.fillStyle = "rgba(0, 0, 0, 0.6)";
+            snakeContext.fillRect(0, 0, fieldSize, fieldSize);
+
+            snakeContext.fillStyle = "#ffffff";
+            snakeContext.font = "28px Arial";
+            snakeContext.textAlign = "center";
+            snakeContext.fillText("Игра окончена", fieldSize / 2, fieldSize / 2 - 10);
+
+            snakeContext.font = "18px Arial";
+            snakeContext.fillText("Очки: " + snakeScoreValue, fieldSize / 2, fieldSize / 2 + 25);
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (!snakeStarted || snakeGameOver) {
+                return;
+            }
+
+            if (event.key === "ArrowLeft" && direction !== "right") {
+                nextDirection = "left";
+            } else if (event.key === "ArrowRight" && direction !== "left") {
+                nextDirection = "right";
+            } else if (event.key === "ArrowUp" && direction !== "down") {
+                nextDirection = "up";
+            } else if (event.key === "ArrowDown" && direction !== "up") {
+                nextDirection = "down";
+            }
+        });
+    </script>
+
+</body>
+</html>
